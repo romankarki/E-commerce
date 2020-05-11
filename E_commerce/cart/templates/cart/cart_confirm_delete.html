@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+
+<br>
+<br><br>
+<hr>
+
+<h1>Delete {{cart.product}} from the cart?</h1>
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" class='btn btn-danger' value="Delete">
+</form>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block body_block %}
+<br><br><br><br>
+<div class="container">
+    <h1><strong>Items in my cart -@{{user}}</strong></h1>
+    <br>
+
+    <table class="table">
+        <tr>
+            <th>Product</th>
+            <th>Brand</th>
+            <th>price</th>
+            <th>In stock</th>
+            <th>Action</th>
+        </tr>
+        {% for cart in  carts%}
+        <tr>
+               
+               <td>{{cart.product}}</td>
+                <td>{{cart.product.brand}}</td>
+                <td>Rs.{{cart.product.price}}</td>
+                <td>{{cart.product.in_stock}}</td>
+                <td><a href="{% url 'orders:order_create' pk=cart.product.id%}" class="btn btn-primary">Order</a> &nbsp;
+                <a class="btn btn-danger" href="{% url 'cart:cart_delete' pk=cart.pk%}">remove</a></td>
+                
+        </tr>
+        {% endfor %}
+    </table>
+    
+ 
+        
+</div>
+
+
+    
+{% endblock body_block %}
+    

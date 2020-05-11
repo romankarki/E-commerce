@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body_block %}
+
+<br><br><br><br>
+<h1>
+    Cart - @{{user}}
+    <hr>
+    
+</h1>
+
+{% with cart.0 as c  %}
+    <h3>Add this item 
+       {{form.product}}
+             
+        
+        to the cart??</h3>
+{% endwith %}
+    
+
+
+
+    <form method="POST">
+    {% csrf_token %}
+    
+     
+ 
+        
+    
+    
+    <div class="d-none">
+        {{form.as_p}} 
+    </div>
+    
+    <input type="submit" class="btn btn-primary" value="submit"/>
+</form>
+
+
+
+    
+{% endblock body_block %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block body_block %}
+<br><br>
+
+<div class="container">
+    <div class="alert alert-danger">
+           <h1>Out of stock!!! </h1>
+
+    <p> 
+        There are only {{in_stock}}  {{prod}}s left.
+        please check the stocks of the product before ordering!
+    </p>
+    <br>
+    <hr>
+    <p>Thank You
+    </p>
+    </div>
+</div>
+  
+{% endblock body_block %}
+
+    

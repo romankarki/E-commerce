@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block body_block %}
+
+<div class="container">
+
+    <div class="jumbotron">
+
+        <table class="table">
+            <tr>
+                <th colspan="2">
+                    <li class="list-group-item"><h2><strong>{{product_details.name}}</strong></h2></li>
+                    
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <ul class="list-group">
+                      <li class="list-group-item"><img src="{{product_details.photo.url}}" alt=""></li>  
+                    </ul>
+                    <br>
+<!-- {{user.id}} -->
+                    <a class="btn btn-primary" href="{%url 'cart:create' pk=product_details.pk  %}">Add to Cart</a> 
+                    
+                </td>
+
+                <td>
+                      <ul class="list-group">
+                        <li class="list-group-item"><strong> Product: {{product_details.name}}</strong></li>
+                        <li class="list-group-item"><strong>Price: </strong> Rs. {{product_details.price}}</li>
+                        <li class="list-group-item"><strong>Brand: </strong>{{product_details.brand}}</li>
+                        <li class="list-group-item"><strong>Category: </strong>{{product_details.category}}</li>
+                        <li class="list-group-item"><strong>Description: </strong><p class="card-text">{{product_details.description}}</p></li>
+                        
+                        <br>
+                        
+                        {% if product_details.in_stock %}
+                                <div class="alert alert-success" role="alert">
+                                   <strong>In Stock: </strong> {{product_details.in_stock}}
+                                </div>
+                        {% else %}
+                        <div class="alert alert-danger" role="alert">
+                            <strong>Out of Stock!</strong>
+                          </div>
+
+                            
+                        {% endif %}
+                            
+                    </ul>
+                </td>
+
+            </tr>
+
+        </table>
+      
+        <!-- <h2>{{product_details.name}}</h2>
+        <img src="{{product_details.photo.url}}" alt="">
+        <p>{{product_details.description}}</p>
+        <p>{{product_details.price}}</p> -->
+    </div>
+</div>
+
+
+
+    
+    
+{% endblock body_block %}
+
+
+    

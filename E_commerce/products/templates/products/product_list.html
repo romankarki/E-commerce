@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block body_block %}
+<div class="container">
+    <br>
+    <h2>
+        Welcome to your shopping portal!
+
+            {% if user.is_authenticated %}
+                 <strong>@{{user}}</strong> 
+            {% endif %}
+    </h2>
+    
+
+
+    <hr>
+
+
+
+    <div class="container">
+        <div class="row">
+          
+            {% for product in  products %}
+            <div class="col-sm">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{product.photo.url}}" class="card-img-top" alt="..." width="90" height="170">
+                    <div class="card-body">
+                        <div class="container">
+
+                            <h5 class="card-title"><strong>{{product.name}}</strong></h5>
+                            <p class="card-text">{{product.brand}}</p>
+                            <p class="card-text">Rs. {{product.price}}</p>
+                            <a href="{{product.id}}" class="btn btn-primary">view details</a>
+                        </div>
+
+                    
+
+                    </div>
+                </div>
+              </div>        
+            {% endfor %}      
+
+          
+
+        </div>
+      </div>
+
+<div class="grid">
+    
+</div>
+
+</div>
+
+    
+    
+{% endblock body_block %}
+
+
+    

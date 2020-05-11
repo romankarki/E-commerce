@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block body_block %}
+
+<br><br>
+
+<div class="container">
+    <h1><strong>Log In</strong></h1>
+    <hr>
+    <!-- <form method="POST">
+        <div class="form-group">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" class="btn btn-primary" value="Login">
+
+        </div>
+
+    </form> -->
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username">
+          <small id="emailHelp" class="form-text text-muted">We'll never share your details with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a class="btn btn-danger" href="{%url 'accounts:signup'%}" >Sign up</a>
+      </form>
+
+
+</div>
+
+
+{% endblock %}
